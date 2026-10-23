@@ -1,0 +1,485 @@
+/* =====================================================
+   STYLE.CSS - Portofolio Lathifah
+   Daftar isi:
+   1. Design tokens (warna & ukuran)  <-- EDIT WARNA DI SINI
+   2. Reset & base
+   3. Tombol
+   4. Navbar
+   5. Hero
+   6. Tentang
+   7. Skills
+   8. Hobi (tab)
+   9. Kontak
+   10. Footer
+   11. Responsif
+   ===================================================== */
+
+/* ============ 1. DESIGN TOKENS ============ */
+:root {
+  --cream:      #2d2830;   /* latar utama */
+  --cream-deep: #353039;   /* latar section selang-seling */
+  --sage:       #8fa0bf;   /* biru dusty (bar skill, avatar) */
+  --sage-deep:  #e3b5c2;   /* rose lembut: tombol, menu aktif */
+  --wood:       #f1e6e8;   /* judul */
+  --gray-soft:  #b3a8ae;   /* teks pendukung */
+  --ink:        #e9e1e4;   /* teks utama */
+  --white-warm: #3d3640;   /* kartu */
+  --line:       #51485a;   /* garis tipis */
+
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'Quicksand', system-ui, sans-serif;
+}
+
+/* ============ 2. RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-head); color: var(--wood); line-height: 1.25; font-weight: 500; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container { width: min(1060px, 92%); margin-inline: auto; }
+section { padding: 88px 0; }
+section.alt { background: var(--cream-deep); }
+
+.section-head { text-align: center; margin-bottom: 44px; }
+.section-head .eyebrow {
+  display: inline-block;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 8px;
+}
+.section-head h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); }
+.section-head p { color: var(--gray-soft); margin-top: 10px; }
+
+:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; border-radius: 6px; }
+
+/* ============ 3. TOMBOL ============ */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: 2px solid var(--sage-deep);
+  font-family: inherit;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn-primary { background: var(--sage-deep); color: var(--cream); }
+.btn-primary:hover { background: #edc6d1; transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--sage-deep); }
+.btn-outline:hover { background: var(--sage-deep); color: var(--cream); transform: translateY(-2px); }
+
+/* ============ 4. NAVBAR ============ */
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  background: rgba(90, 77, 102, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #766a85;
+}
+.nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-head); font-size: 1.3rem; color: var(--wood); font-weight: 400; }
+.logo span { color: var(--sage-deep); }
+
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-size: .95rem;
+  color: var(--ink);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--sage-deep); border-color: var(--sage-deep); }
+
+/* Tombol hamburger (hanya tampil di layar kecil) */
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+}
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--wood);
+  margin: auto;
+  position: relative;
+  transition: transform .25s, background .25s;
+}
+.menu-btn span::before,
+.menu-btn span::after { content: ""; position: absolute; left: 0; }
+.menu-btn span::before { top: -7px; }
+.menu-btn span::after  { top: 7px; }
+.menu-btn[aria-expanded="true"] span { background: transparent; }
+.menu-btn[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span::after  { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============ 5. HERO ============ */
+#beranda {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 110px;
+  background:
+    radial-gradient(circle at 80% 40%, rgba(227, 181, 194, .14), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(143, 160, 191, .12), transparent 45%),
+    #3a3144;                          /* latar: gelap sedang */
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero .hello {
+  color: var(--sage-deep);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.hero h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #f6eef0;
+  margin-bottom: 18px;
+}
+.hero h1 em { font-style: normal; color: var(--sage-deep); }
+.hero p.lead {
+  color: #e0d6e3;
+  font-size: 1.1rem;
+  max-width: 540px;
+  margin-bottom: 32px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.avatar-wrap { display: flex; justify-content: center; }
+.avatar-wrap img {
+  width: min(400px, 85vw);
+  height: auto;
+  aspect-ratio: 10 / 11;
+  object-fit: cover;
+  object-position: center 25%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  filter: brightness(1.05);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%);
+}
+.avatar-wrap { position: relative; }
+.avatar-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 6%;
+  background: radial-gradient(circle, rgba(227, 181, 194, .28), transparent 65%);
+  filter: blur(30px);
+  z-index: 0;
+}
+.avatar-wrap img { position: relative; z-index: 1; }
+
+/* ============ 6. TENTANG ============ */
+#tentang { background: #221e29; }   /* latar section: gelap */
+
+.about {
+  max-width: 880px;
+  margin-inline: auto;
+  text-align: left;
+  background: #4b3f58;              /* kartu: lebih terang, keunguan */
+  border: 1px solid #6a5b7a;
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  position: relative;
+}
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 44px;
+  width: 64px;
+  height: 4px;
+  background: var(--sage-deep);
+  border-radius: 0 0 6px 6px;
+}
+.about p { color: var(--ink); font-size: 1.05rem; line-height: 1.9; }
+.about p:first-child { font-size: 1.15rem; color: var(--wood); }
+.about p + p { margin-top: 18px; }
+
+/* Label kecil: 4 kolom sama lebar, selalu 1 baris */
+.chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px dashed #6a5b7a;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 500;
+  color: #2d2830;                   /* tulisan gelap di atas warna pastel */
+  border: 0;
+  transition: transform .2s ease;
+}
+.chip:hover { transform: translateY(-3px); }
+.chip:nth-child(1) { background: #e3b5c2; }  /* pink */
+.chip:nth-child(2) { background: #a9bde0; }  /* biru */
+.chip:nth-child(3) { background: #f2cfae; }  /* peach */
+.chip:nth-child(4) { background: #b8dcc6; }  /* mint */
+
+/* ============ 7. SKILLS ============ */
+#skills { background: #54475f; }   /* latar section */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  align-items: start;              /* tinggi kartu mengikuti isinya sendiri */
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  background: #4f3a64;
+  border: 1px solid #6a5b7a;
+  border-radius: 22px;
+  padding: 36px 32px 32px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .3);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--sage-deep);
+}
+.card h3 { font-size: 1.3rem; margin-bottom: 24px; }
+
+/* Hard skills */
+.skill { --c: #e3b5c2; }
+.skill:nth-of-type(2) { --c: #a9bde0; }
+.skill:nth-of-type(3) { --c: #f2cfae; }
+.skill:nth-of-type(4) { --c: #b8dcc6; }
+.skill:nth-of-type(5) { --c: #cdb9ea; }
+
+.skill + .skill { margin-top: 26px; }
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.skill-top span:last-child {
+  font-size: .78rem;
+  font-weight: 500;
+  color: #2d2830;
+  background: var(--c);
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+.bar { height: 10px; background: #392f44; border-radius: 99px; overflow: hidden; }
+.bar i {
+  display: block;
+  height: 100%;
+  width: 0;                         /* diisi lewat JS dari atribut data-level */
+  background: var(--c);
+  border-radius: 99px;
+  transition: width 1.1s ease;
+}
+
+/* Soft skills */
+.soft-list li {
+  padding: 16px 0;
+  border-bottom: 1px dashed #6a5b7a;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.soft-list li:first-child { padding-top: 0; }
+.soft-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.soft-list .dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: #e3b5c2;
+}
+.soft-list li:nth-child(2) .dot { background: #a9bde0; }
+.soft-list li:nth-child(3) .dot { background: #f2cfae; }
+.soft-list li:nth-child(4) .dot { background: #b8dcc6; }
+.soft-list b { display: block; color: var(--wood); font-weight: 500; font-size: 1.02rem; }
+.soft-list small { color: #d9cfdd; font-size: .93rem; line-height: 1.7; }
+/* ============ 8. HOBI (TAB) ============ */
+#hobi { background: #2a2430; }   /* latar section */
+
+/* Tab dalam wadah kapsul */
+.tabs {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 40px;
+  padding: 6px;
+  gap: 6px;
+  background: #221e29;
+  border: 1px solid #51485a;
+  border-radius: 999px;
+}
+.tab {
+  padding: 10px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--gray-soft);
+  background: transparent;
+  border: 0;
+  transition: background .2s ease, color .2s ease;
+}
+.tab:hover { color: var(--wood); }
+.tab[aria-selected="true"] { background: var(--sage-deep); color: #2d2830; }
+
+.panel { display: none; animation: fade .4s ease; }
+.panel.show { display: block; }
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Kartu hobi */
+.hobby-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.hobby-card {
+  position: relative;
+  overflow: hidden;
+  background: #4b3f58;
+  border: 1px solid #6a5b7a;
+  border-radius: 22px;
+  padding: 32px 26px 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .3);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.hobby-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent, #e3b5c2);
+}
+.hobby-card:nth-child(1) { --accent: #e3b5c2; }   /* pink */
+.hobby-card:nth-child(2) { --accent: #a9bde0; }   /* biru */
+.hobby-card:nth-child(3) { --accent: #f2cfae; }   /* peach */
+.hobby-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .4);
+}
+.hobby-card .ico {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  font-size: 1.7rem;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 16px;
+}
+.hobby-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--wood); }
+.hobby-card p { color: #d9cfdd; font-size: .98rem; line-height: 1.8; }
+
+/* ============ 9. KONTAK ============ */
+.contact { text-align: center; max-width: 560px; margin-inline: auto; }
+.contact p { color: #e3dae6; margin-bottom: 26px; }
+#kontak { background: #4f3a64; }
+/* ============ 10. FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: .9rem;
+  color: var(--gray-soft);
+  border-top: 1px solid var(--line);
+}
+
+/* ============ 11. RESPONSIF ============ */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero p.lead { margin-inline: auto; }
+  .hero-actions { justify-content: center; }
+  .avatar-wrap { order: -1; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .hobby-grid { grid-template-columns: 1fr 1fr; }
+  .avatar-wrap img { width: min(260px, 70vw); }
+}
+
+@media (max-width: 720px) {
+  section { padding: 68px 0; }
+  .menu-btn { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+  .nav-links.open { max-height: 320px; }
+  .nav-links a { display: block; padding: 14px 4%; border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 520px) {
+  .hobby-grid { grid-template-columns: 1fr; }
+  .card { padding: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 720px) {
+  .chips { grid-template-columns: repeat(2, 1fr); }
+  .hobby-card:nth-child(3) { grid-column: 1 / -1;}
+}
+
+@media (max-width: 520px) {
+  .about { padding: 28px 22px; }
+  .about::before { left: 22px; }
+}

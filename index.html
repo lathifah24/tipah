@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Lathifah, mahasiswa Sistem Informasi yang sedang aktif belajar pemrograman.">
+  <title>Lathifah | Portofolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- File CSS (harus satu folder dengan index.html) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header>
+    <div class="container nav">
+      <a href="#beranda" class="logo">Lathifah<span>.student</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#hobi">Hobi</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO / BERANDA ===================== -->
+    <section id="beranda">
+      <div class="container hero">
+        <div>
+          <p class="hello">Halo guys kenalin 👋</p>
+          <h1>Aku <em>Lathifah</em>,<br>Mahasiswa Sistem Informasi.</h1>
+          <p class="lead">
+            yang lagi belajar pemrograman dan suka menyusun sesuatu
+            secara rapi dan terstruktur. Aku juga punya minat membaca buku
+            dan kadang suka bereksperimen di dapur.
+          </p>
+          <div class="hero-actions">
+            <a href="#skills" class="btn btn-primary">Lihat Skills</a>
+
+            <!-- GANTI USERNAMEKAMU dengan username Instagram-mu (tanpa @) -->
+            <a href="https://www.instagram.com/ifahaza_?psln=MTRqdXJuOTIvM3A2bQ=="
+               class="btn btn-outline"
+               target="_blank"
+               rel="noopener noreferrer">my IG</a>
+          </div>
+        </div>
+
+        <div class="avatar-wrap">
+          <!-- Mau pakai foto? Hapus div di bawah, lalu aktifkan baris <img> ini:
+          <img src="foto.jpg" alt="Foto Lathifah" class="avatar">
+          -->
+          <img src="foto.jpeg">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TENTANG ===================== -->
+    <section id="tentang" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">ABOUT ME</span>
+          <h2>Sedikit cerita tentang aku</h2>
+        </div>
+        <div class="about">
+          <p>
+            aku  mahasiswa Sistem Informasi yang lagi belajar tentang pemrograman.
+            prosesnya seru dan aku menikmati proses ini, mulai dari memahami gimana sebuah sistem itu bisa berjalan,
+            lalu gimana alur kerjanya sampai bisa jadi tampilan yang cocok dan enak dilihat.
+          </p>
+          <p>
+            aku kurang bisa basa basi tapi bakal asik komunikasinya kalo sama yang sefrekuensi. 
+            Selain itu suka pengen tau banyak hal, pengen tau gimana proses belajarnya.
+            Bagi aku, belajar yang seru itu ketika dilaukuin bareng bareng dengan santai'
+            tapi tetap sopan dan terarah.
+          </p>
+          <div class="chips">
+            <span class="chip">📚 Suka baca buku kalo mood</span>
+            <span class="chip">🍳 Kadang masak</span>
+            <span class="chip">💻 Belajar kalo ada PR</span>
+            <span class="chip">🌱 Introvert</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Keahlian</span>
+          <h2>Hard Skills &amp; Soft Skills</h2>
+          <p>Level menunjukkan tahap belajar Aku saat ini.</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Hard skills: ubah angka data-level (0-100) untuk mengatur panjang bar -->
+          <div class="card">
+            <h3>Hard Skills</h3>
+            <div class="skill">
+              <div class="skill-top"><span>Copy Writing</span><span>Pemula</span></div>
+              <div class="bar"><i data-level="15"></i></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>Editing</span><span>Pemula</span></div>
+              <div class="bar"><i data-level="35"></i></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>Coding</span><span>Pemula</span></div>
+              <div class="bar"><i data-level="20"></i></div>
+            </div> 
+          </div>
+
+          <!-- Soft skills -->
+          <div class="card">
+            <h3>Soft Skills</h3>
+            <ul class="soft-list">
+              <li><span class="dot"></span><div><b>Komunikasi efektif</b><small>bisa menyampaikan ide dengan jelas, ramah, dan sopan.</small></div></li>
+              <li><span class="dot"></span><div><b>Empati</b><small> Selalu berusaha memahami sudut pandang dan kebutuhan orang lain.</small></div></li>
+              <li><span class="dot"></span><div><b>Penjelasan terstruktur</b><small>Menjabarkan hal rumit menjadi langkah yang mudah diikuti tergantung lagi bahas hal apa.</small></div></li>
+              <li><span class="dot"></span><div><b>Pendengar yang baik</b><small>lebih suka nyimak dulu sebelum menanggapi.</small></div></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOBI (TAB) ===================== -->
+    <section id="hobi" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Hobi &amp; Minat</span>
+          <h2>hal yang aku suka lakuin</h2>
+          <p>Pilih tab untuk melihat sisi lain dari saya.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Pilih hobi">
+          <button class="tab" role="tab" id="tab-membaca" aria-selected="true"  aria-controls="panel-membaca" data-target="membaca">📚 Membaca</button>
+          <button class="tab" role="tab" id="tab-memasak" aria-selected="false" aria-controls="panel-memasak" data-target="memasak">🍳 Memasak</button>
+        </div>
+
+        <!-- Panel Membaca -->
+        <div class="panel show" id="panel-membaca" role="tabpanel" aria-labelledby="tab-membaca">
+          <div class="hobby-grid">
+            <div class="hobby-card">
+              <div class="ico">📖</div>
+              <h3>Bikin Rileks</h3>
+              <p>baca buku tuh salah satu cara aku beristirahat dan menenangkan pikiran setelah seharian belajar.</p>
+            </div>
+            <div class="hobby-card">
+              <div class="ico">💡</div>
+              <h3>Wawasan Baru</h3>
+              <p>Dari buku, aku belajar melihat sesuatu dari banyak sudut pandang yang berbeda.</p>
+            </div>
+            <div class="hobby-card">
+              <div class="ico">🗣️</div>
+              <h3>Melatih Bahasa</h3>
+              <p>Membaca membantuku merangkai kata biar kalau ngasih penjelasan lebih runtut dan enak didengar dan mudah dipahami.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Memasak -->
+        <div class="panel" id="panel-memasak" role="tabpanel" aria-labelledby="tab-memasak">
+          <div class="hobby-grid">
+            <div class="hobby-card">
+              <div class="ico">🥘</div>
+              <h3>Coba-coba Resep</h3>
+              <p>Sesekali aku suka coba resep baru, kadang berhasil, kadang jadi bahan belajar.</p>
+            </div>
+            <div class="hobby-card">
+              <div class="ico">🧂</div>
+              <h3>Proses yang Seru</h3>
+              <p>masak mirip kaya nyusun alur kerja: ada urutan langkah dan takaran yang perlu diperhatiin.</p>
+            </div>
+            <div class="hobby-card">
+              <div class="ico">🍽️</div>
+              <h3>Berbagi Rasa</h3>
+              <p>Senang rasanya kalau masakan sederhana yang kubuat dicobain sama orang terdekat.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== KONTAK ===================== -->
+    <section id="kontak">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Kontak</span>
+          <h2>mutualan yuk</h2>
+        </div>
+        <div class="contact">
+          <p>
+            kita bisa saling bertukar cerita, diskusi bareng, atau sekadar nyapa?
+            Kamu bisa kepoin IG aku dibawah ini yaa
+          </p>
+
+          <!-- GANTI USERNAMEKAMU dengan username Instagram-mu (tanpa @) -->
+          <a href="https://www.instagram.com/ifahaza_?psln=MTRqdXJuOTIvM3A2bQ=="
+             class="btn btn-primary"
+             target="_blank"
+             rel="noopener noreferrer">My Instagram</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container">© <span id="year"></span> Portofolio Lathifah. Dibuat dengan HTML, CSS &amp; JavaScript.</div>
+  </footer>
+
+  <!-- File JavaScript (harus satu folder dengan index.html) -->
+  <script src="script.js"></script>
+</body>
+</html>
